@@ -162,8 +162,8 @@ const getdata = (request, response) => {
   const estacion = request.query.estacion;
   const estacion2 = request.query.estacion2;
   var q = `
-  select h1.estacion  "estacion1", h1.year "year", h1.mes "mes", h1.dia "dia", 
-  h1.lluvia "lluvia1",h1.tmax "tmax1", h1.tmin "tmin1", h1.etp "etp1", h1.bc "bc1", h1.zona_vida "zona_vida1"
+  select h1.estacion  "estacion", h1.year "year", h1.mes "mes", h1.dia "dia", 
+  h1.lluvia "lluvia",h1.tmax "tmax", h1.tmin "tmin", h1.etp "etp", h1.bc "bc", h1.zona_vida "zona_vida"
   from historico_estaciones h1
   where h1.estacion = '${estacion}'
   AND h1.year between ${yyyy1} and ${yyyy2}
@@ -171,8 +171,8 @@ const getdata = (request, response) => {
   
   union
 
-  select h1.estacion  "estacion1", h1.year "year", h1.mes "mes", h1.dia "dia", 
-  h1.lluvia "lluvia1",h1.tmax "tmax1", h1.tmin "tmin1", h1.etp "etp1", h1.bc "bc1", h1.zona_vida "zona_vida1"
+  select h1.estacion  "estacion", h1.year "year", h1.mes "mes", h1.dia "dia", 
+  h1.lluvia "lluvia",h1.tmax "tmax", h1.tmin "tmin", h1.etp "etp", h1.bc "bc", h1.zona_vida "zona_vida"
   from historico_estaciones h1
   where h1.estacion = '${estacion2}'
   AND h1.year between ${yyyy1} and ${yyyy2}
