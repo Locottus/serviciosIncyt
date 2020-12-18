@@ -105,14 +105,13 @@ const ISE1_INFRA_TEXT = (request, response) => {
   console.log(request.body.length);
   for (var i = 0; i < request.body.length; i++) {
 
-    var {fr, ms } = request.body[i];
-    var dataArr = ms.split(',');
+    var {f, m} = request.body[i];
+    var dataArr = m.split(',');
 
-    var query = "INSERT INTO polls_ise1_infra (fecha_recepcion,infrasonido_1, mseed_text ) VALUES ('" + fr + "',"+dataArr[8]+",'" + ms + "')";
-    console.log(query);  
-    console.log(dataArr[0]);
-      pool.query('INSERT INTO polls_ise1_infra (fecha_recepcion, infrasonido_1,infrasonido_2,infrasonido_3, infrasonido_4, audible_1, mpu_gxe,mpu_gye, mpu_gze, mpu_axe, mpu_aye, mpu_aze,  mseed_text ) VALUES ($1,$2,$3,$4,$5, $6, $7, $8, $9, $10, $11, $12, $13)',
-      [fr,dataArr[0],dataArr[1],dataArr[2],dataArr[3],dataArr[4],dataArr[5],dataArr[6],dataArr[7],dataArr[8],dataArr[9],dataArr[10],ms], (error, results) => {
+    var query = "INSERT INTO polls_ise1_infra (fecha_recepcion,infrasonido_1, mseed_text ) VALUES ('" + f + "',"+dataArr[4]+",'" + m + "')";
+    console.log(query);
+      pool.query('INSERT INTO polls_ise1_infra (fecha_recepcion, infrasonido_1,infrasonido_2,infrasonido_3, infrasonido_4, mpu_axe, mpu_aye, mpu_aze,  mseed_text ) VALUES ($1,$2,$3,$4,$5, $6, $7, $8, $9)',
+      [f,dataArr[0],dataArr[1],dataArr[2],dataArr[3],dataArr[4],dataArr[5],dataArr[6],m], (error, results) => {
         if (error) {
         console.log(error);
         }
