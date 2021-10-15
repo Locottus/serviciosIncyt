@@ -72,6 +72,8 @@ app.post('/incyt/api/HashFiles/postStaticFile', upload.single('file'), f.postSta
 
 app.get('/incyt/api/HashFiles/getVideosVolcanes', f.getVideosVolcanes)
 
+app.get('/incyt/api/HashFiles/getSecret', f.getSecret)
+
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
 })

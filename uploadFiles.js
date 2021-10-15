@@ -122,12 +122,25 @@ const getVideosVolcanes = (request, response) => {
 }
 
 
+const getSecret = (request, response) => {
+  //const minutos = request.query.minutos;
+  //select * from e1ms1 where fecha_recepcion > (current_timestamp - (100000 * interval '1 minute'))
+  pool.query('select * from secret ', (error, results) => {
+    if (error) {
+      throw error
+    }
+    //console.log('se han enviado todos los mensajes');
+    response.status(200).json(results.rows)
+  })
+}
+
 module.exports = {
   getFile,
   postFile,
   //getStaticFile,
   postStaticFile,
-  getVideosVolcanes
+  getVideosVolcanes,
+  getSecret
 }
 
 
