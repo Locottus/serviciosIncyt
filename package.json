@@ -9,6 +9,7 @@
   "author": "Herlich Steven Gonzalez Zambrano",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "multer": "^1.4.2",
     "nodemailer": "^6.6.0",
